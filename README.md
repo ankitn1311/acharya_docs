@@ -1,15 +1,12 @@
 ## **Recommended Documentation Tools**
 - **Markdown + GitHub/GitLab Wiki:**
   Easy to version, collaborate, and keep close to code.
-- **Confluence:**
-  Great for larger teams, supports diagrams, tables, and rich formatting.
-- **Notion:**
-  User-friendly, good for collaborative editing and linking.
 - **Swagger/OpenAPI:**
   For auto-generating and sharing API documentation.
 - **dbdiagram.io / SchemaSpy:**
   For visualizing and documenting your database schema.
 **For migration projects, Markdown in a Git repo (with diagrams as images or links) is often the most practical and future-proof.**
+  
 I think we should go for Github Wiki, and some diagram /visual app for flow charts and database schemas
 ---
 ## **Example Documentation Structure & Sample Content**
