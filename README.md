@@ -111,8 +111,8 @@ Document the current backend system to support migration to a new, maintainable 
 ```
 ---
 ## **How to Work as a Team**
-- **Divide modules** among team members (e.g., each person takes 2-3 modules).
-- **Weekly syncs** to share findings and update documentation.
+- **Divide modules** among team members.
+- **Daily syncs** to share findings and update documentation.
 - **Central repo** (e.g., GitHub) for all docs, diagrams, and API exports.
 - **Review sessions** with the 1-2 project experts for accuracy.
 ---
@@ -124,5 +124,3 @@ Document the current backend system to support migration to a new, maintainable 
 | Module/Feature Docs | Markdown/Confluence| .md files, tables, diagrams   |
 | Collaboration       | GitHub/Notion      | Centralized, versioned docs   |
 ---
-**Start simple, iterate, and keep everything versioned.**
-Let me know if you want a ready-to-use Markdown template or more detail on any section!
