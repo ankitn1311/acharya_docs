@@ -8,7 +8,7 @@ Welcome to the comprehensive documentation for Acharya ERP system.
 - [User Roles & Permissions](User-Roles-and-Permissions)
 
 ## 📚 Modules
-- [👥 Employee Module] [[Modules Employee Module]]
+- [👥 Employee Module](Modules/Employee-Module.md)
 - [🎓 Student Module](Student-Module)
 - [📖 Academics Module](Academics-Module)
 - [🏢 Institute Module](Institute-Module)
