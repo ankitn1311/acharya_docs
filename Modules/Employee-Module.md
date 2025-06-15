@@ -90,7 +90,7 @@ This section records the user’s professional registration information. It  in
 *   Educational Background – High-level academic qualifications.  
       
     
-*   Total Experience – Overall years of professional experience.  
+*   Total Experience – Overall years of professional experience.
       
     
 
@@ -169,7 +169,7 @@ This section maintains health-related records. Users can:
 3.  Biometric Details: Employee can view their complete biometric attendance records by selecting a specific month and year, including daily check‑in and check‑out times as well as total hours worked.  
       
     
-4.  Leaves: Employee can review all of their submitted leave requests past and pending in one place, seeing details such as leave type, dates, duration, and current approval status.  
+4.  Leaves: Employee can review all of their submitted leave requests past and pending in one place, seeing details such as leave type, dates, duration, and current approval status
       
     
 5.  Salary Structure: Employee can examine their detailed salary breakdown for the current financial year, with clear visibility into basic pay, allowances, deductions, and net pay.  
