@@ -286,16 +286,16 @@ classDiagram
     User <|-- Customer
     User <|-- Admin
 
-    Customer "1" -- "many" Order : places
-    Order "1" -- "many" OrderItem : contains
-    OrderItem "many" -- "1" Product : references
-    Product "many" -- "1" Category : belongs_to
-    Product "1" -- "1" Inventory : has
-    Order "1" -- "many" Payment : has_payments
-    Customer "1" -- "many" Address : has_addresses
-    Order "many" -- "1" Address : ships_to
+    Customer --> Order : places
+    Order --> OrderItem : contains
+    OrderItem --> Product : references
+    Product --> Category : belongs_to
+    Product --> Inventory : has
+    Order --> Payment : has_payments
+    Customer --> Address : has_addresses
+    Order --> Address : ships_to
 
-    <<enumeration>> OrderStatus
+    class OrderStatus
     OrderStatus : PENDING
     OrderStatus : CONFIRMED
     OrderStatus : PROCESSING
@@ -303,13 +303,13 @@ classDiagram
     OrderStatus : DELIVERED
     OrderStatus : CANCELLED
 
-    <<enumeration>> PaymentMethod
+    class PaymentMethod
     PaymentMethod : CREDIT_CARD
     PaymentMethod : PAYPAL
     PaymentMethod : BANK_TRANSFER
     PaymentMethod : APPLE_PAY
 
-    <<enumeration>> PaymentStatus
+    class PaymentStatus
     PaymentStatus : PENDING
     PaymentStatus : COMPLETED
     PaymentStatus : FAILED
