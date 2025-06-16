@@ -37,6 +37,14 @@ The Employee Module provides comprehensive workforce management capabilities inc
     - [Staff Id Card](#staff-id-card)
     - [Vacation Leave Window](#vacation-leave-window)
 3. [Approver Functions](#approver-functions)
+4. Salary Reports
+    - [Salary Sheet](SalaryReports/Salary-Sheet.md)
+    - [Consultant Pay Report](SalaryReports/Consultant-Pay-Report.md)
+    - [Master Pay Report](SalaryReports/Master-Pay-Report.md)
+5. Payroll Activities
+    - [Consultant Pay](PayrollActivities/Consultant-Pay.md)
+    - [Deductions](PayrollActivities/Deductions.md)
+    - [Additional Pay](PayrollActivities/Additional-Pay.md)
 3. [API Endpoints](#api-endpoints)
 4. [Database Schema](#database-schema)
 5. [Module Architecture](#module-architecture)
