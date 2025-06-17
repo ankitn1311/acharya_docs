@@ -17,26 +17,34 @@ The Employee Module provides comprehensive workforce management capabilities inc
     - [AddOn Report](#addon-report)
     - [Transport Indent](#transport-indent)
     - [Service Render Transport](#service-render-transport)
-2. [HR Support Functions](#hr-support-functions)
-    - [Employee Master](#employee-master)
-    - [Job Portal](#job-portal)
-    - [Staff Attendance](#staff-attendance)
-    - [Relieving Master](#relieving-master)
-    - [Holiday Calendar](#holiday-calendar)
-    - [Leave History](#leave-history)
-    - [Initiate Leave](#initiate-leave)
-    - [Research Report](#research-report)
-    - [Employee Log](#employee-log)
-    - [Dashboard](#dashboard)
-    - [Staff Data](#staff-data)
-    - [Staff Data INST](#staff-data-inst)
-    - [Increment Initiation](#increment-initiation)
-    - [Increment Repo](#increment-repo)
-    - [Staff Attendance - INST](#staff-attendance---inst)
-    - [Staff Attendance - DEPT](#staff-attendance---dept)
-    - [Staff Id Card](#staff-id-card)
-    - [Vacation Leave Window](#vacation-leave-window)
+2. [HR Support](#hr-support)
+    - [Employee Master](HRSupport/Employee-Master.md)
+    - [Job Portal](HRSupport/Job-Portal.md)
+    - [Staff Master](HRSupport/Staff-Master.md)
+    - [Relieving Master](HRSupport/Relieving-Master.md)
+    - [Holiday Calendar](HRSupport/Holiday-Calendar.md)
+    - [Leave History](HRSupport/Leave-History.md)
+    - [Initiate Leave](HRSupport/Initiate-Leave.md)
+    - [Research Report](HRSupport/Research-Report.md)
+    - [Employee Log](HRSupport/Employee-Log.md)
+    - [Dashboard](HRSupport/Dashboard.md)
+    - [Staff Data](HRSupport/Staff-Data.md)
+    - [Staff Data INST](HRSupport/Staff-Data.md)
+    - [Increment Initiation](HRSupport/Increment-Initiation.md)
+    - [Increment Repo](HRSupport/Increment-Repo.md)
+    - [Staff Attendance - INST](HRSupport/Staff-Attendance-INST.md)
+    - [Staff Attendance - DEPT](HRSupport/Staff-Attendance-INST.md)
+    - [Staff Id Card](HRSupport/Staff_ID-Card.md)
+    - [Vacation Leave Window](HRSupport/Vacation-Leave-Window.md)
 3. [Approver Functions](#approver-functions)
+4. Salary Reports
+    - [Salary Sheet](SalaryReports/Salary-Sheet.md)
+    - [Consultant Pay Report](SalaryReports/Consultant-Pay-Report.md)
+    - [Master Pay Report](SalaryReports/Master-Pay-Report.md)
+5. Payroll Activities
+    - [Consultant Pay](PayrollActivities/Consultant-Pay.md)
+    - [Deductions](PayrollActivities/Deductions.md)
+    - [Additional Pay](PayrollActivities/Additional-Pay.md)
 3. [API Endpoints](#api-endpoints)
 4. [Database Schema](#database-schema)
 5. [Module Architecture](#module-architecture)
@@ -624,605 +632,33 @@ To raise a transport request, the employee must click the Create button and fill
 
 # HR Support
 
-## Employee Master
-    
 
-The Employee Master module serves as a comprehensive directory of all employees within the organization. It captures and displays essential information such as:
 
-*   Personal details  
-      
-    
-*   Department and designation  
-      
-    
-*   Date of joining  
-      
-    
-*   Employment status  
-      
-    
 
-This module is segmented into three categories for ease of access and management:
 
-1.  Staff – Active full-time or part-time employees.  
-      
-    
-2.  Consultants – External professionals working on a contractual basis.  
-      
-    
-3.  Relieved Staff – Former employees who are no longer associated with the organization.  
-      
-    
 
-The Employee Master is accessible to users with the appropriate HR support permissions. It is primarily used to view and verify employee records and organizational structure in a centralized and organized format.
 
-## Job Portal
-    
 
-The Job Portal module acts as a centralized hub for managing all job applications received through the organization’s website. It streamlines the recruitment lifecycle—from application review to final onboarding.
 
-Key Features and Workflow:
 
-#### 1.  Applicant Management   
-    All applications submitted for open roles are listed here. Users with appropriate HR support access can:  
-      
-    
 
-*   View applicant profiles  
-      
-    
-*   Update the HR status (e.g., Shortlisted, On Hold, Rejected)  
-      
-    
-*   Provide comments and notes for internal tracking  
-      
-    
 
-#### 2.  Interview Scheduling  
-    Once an applicant is Shortlisted, the system enables the option to schedule interviews:  
-      
-    
 
-*   One or more interviewers can be selected  
-      
-    
-*   Interview timings and additional details can be configured  
-      
-    
-*   Email notifications can be sent to both the candidate and the interviewers  
-      
-    
 
-#### 3.  Interview Feedback  
-    After the interview is conducted:  
-      
-    
 
-*   Each interviewer submits individual feedback and remarks  
-      
-    
-*   HR can add additional comments and manage the interview evaluation process  
-      
-    
-*   Once all interviews are completed, the cumulative feedback is displayed for final decision-making  
-      
-    
 
-#### 4.  Offer Management  
-    Upon successful completion of the interview process:  
-      
-    
 
-*   The system displays the candidate's evaluation summary, role-specific salary breakup, and the offer letter template  
-      
-    
-*   HR can proceed to generate a formal job offer by specifying:  
-      
-    
 
-*   Reporting manager  
-      
-    
-*   Proposed joining date  
-      
-    
 
-5.  Recruitment and Onboarding  
-    After the job offer is accepted:  
-      
-    
 
-*   HR can initiate the final recruitment process by clicking the "+" icon under the Recruitment section  
-      
-    
-*   A form appears to capture all necessary employee details (e.g., personal info, department, designation)  
-      
-    
-*   Upon submission, the recruitment is marked complete, and the employee is officially onboarded into the organization
-    
 
-## Staff Master
-    
 
-The Staff Master module is designed to display employee attendance data based on selected filter criteria. It provides a quick and organized view of attendance records for employees across different departments and locations.
 
-Key Features:
 
-*   Filter-Based Search  
-    Users can filter attendance records using the following parameters:  
-      
-    
 
-*   Month  
-      
-    
-*   School  
-      
-    
-*   Department  
-      
-    
-*   Employee Type (e.g., Staff, Consultant)  
-      
-    
 
-*   Attendance Overview  
-    Once filters are applied, the system displays the attendance data for all employees matching the selected criteria. This allows for efficient tracking and review of employee presence and absence patterns.
-    
 
-This module is particularly useful for HR teams and department heads to monitor attendance trends, identify irregularities, and support payroll and compliance processes.
 
-## Relieving Master
-    
-
-The Relieving Master submenu under HR Support is used to manage employee resignations and offboarding processes in a streamlined manner.
-
-Key Functions:
-
-**1. Resignation Management**  
-      
-    
-
-*   Displays a list of employees who have applied for resignation.  
-      
-    
-*   Enables HR to track and process each resignation case efficiently.  
-      
-    
-
-**2. No Dues and Documentation**  
-      
-    
-
-*   Allows initiation of the No Dues approval process.  
-      
-    
-*   Provides functionality to upload and manage required exit documents.  
-      
-    
-
-**3.  Relieve or Retain**  
-      
-    
-
-*   HR users with access can choose to retain an employee or initiate a relieve process.  
-      
-    
-*   The relieve process can follow one of two paths:  
-      
-    
-
-*   Approval-Based Relieve: Initiates a formal relieve request that routes through an approval workflow.  
-      
-    
-*   Direct Relieve: Immediately relieves the employee without requiring approval, typically used in urgent or pre-approved scenarios.  
-      
-    
-
-**4.  Relieved Employees History**  
-      
-    
-
-*   Maintains a comprehensive record of all relieved employees.  
-      
-    
-*   Displays key details along with downloadable relieving letters.  
-      
-    
-
-**5.  Rejoin Functionality**  
-      
-    
-
-*   Includes an option to initiate a rejoin process for previously relieved employees, allowing for rehiring within the system.  
-      
-    
-
-This module ensures that the offboarding process is handled with transparency, compliance, and efficiency, supporting smooth transitions for both employees and the organization.
-
-## Holiday Calendar
-    
-
-The Holiday Calendar module provides a centralized view of all official holidays across the organization. It is designed to manage and display holidays specific to different institutes, job types, and departments.
-
-Key Features:
-
-*   Institute-Specific Holidays  
-    Displays holiday lists tailored to each individual institute or branch, ensuring accurate visibility based on location or entity.  
-      
-    
-*   Job Type and Department Filters  
-    Allows filtering of holidays by job type (e.g., Teaching, Non Teaching, HOD) and department, ensuring relevant visibility for different employee groups.  
-      
-    
-*   Manage Holidays  
-    Users with appropriate access can:  
-      
-    
-
-*   Add new holidays to the calendar  
-      
-    
-*   Update departments associated with existing holidays to reflect changes in policy or structure  
-      
-    
-
-This module ensures that employees and HR personnel are informed of applicable holidays, and that updates can be made in a timely and organized manner.
-
-## Leave History
-    
-
-The Leave History module provides a comprehensive log of all leave applications submitted across the organization. It is a centralized tool for tracking, reviewing, and managing employee leave records.
-
-Key Features:
-
-*   Organization-Wide Leave Records  
-    Displays a complete list of all leaves applied by employees, including relevant details such as:  
-      
-    
-
-*   Leave type  
-      
-    
-*   Duration  
-      
-    
-*   Date of application  
-      
-    
-
-*   Approval Tracking  
-    Shows the assigned leave approvers, current leave status (e.g., Pending, Approved, Rejected).  
-      
-    
-*   Attached Documentation  
-    If a reason or supporting document was submitted (e.g., medical certificate), it is accessible directly within the record.
-    
-
-*   Leave Cancellation  
-    Employees or HR personnel (based on access rights) have the option to cancel a leave request, provided it meets the organization's leave policy conditions.  
-      
-    
-
-This module ensures transparency in leave management and facilitates smooth coordination between employees, managers, and HR teams.
-
-## Initiate Leave 
-(to be discussed)
-    
-
-The Initiate Leave module allows authorized users to apply for leaves on behalf of employees. This functionality is especially useful for HR personnel or department heads managing leave for multiple team members.
-
-Key Features:
-
-*   Bulk Leave Initiation  
-    Enables the initiation of leave requests for one or more employees at once.  
-      
-    
-*   Centralized Leave Submission  
-    The module streamlines the leave application process, ensuring consistent data entry and easier tracking across teams.  
-      
-    
-
-This section is ideal for managing planned leaves during institutional breaks, public holidays, or department-wide time-offs.
-
-## Research Report
-    
-
-The Research Report module provides detailed information about the academic research and thesis submissions of employees, particularly those pursuing or holding a PhD.
-
-Key Features:
-
-*   Thesis and Research Tracking  
-    Displays thesis details submitted by employees across the organization.  
-      
-    
-*   Employee Research Profile  
-    Each entry includes comprehensive data such as:  
-      
-    
-
-*   PhD Status (e.g., PHD pursuing, PHD holder)
-    
-*   Designation
-    
-*   Department
-    
-*   PhD Tenure
-    
-*   University Attended
-    
-*   Thesis Title
-    
-*   Registration Date
-    
-*   CompletedDate  
-      
-    
-
-This module helps HR, academic heads, and research committees to monitor research progress, maintain institutional records, and support employees in their academic pursuits.
-
-## Employee Log 
-(To be discussed)
-    
-
-The Employee Log section is intended to provide a detailed view of an individual employee’s profile and related records. It serves as a centralized snapshot of employee-specific information for reference and internal use.
-
-## Dashboard
-    
-
-The Dashboard Analytics section provides both graphical and grid-based representations of key metrics across various departments, enabling data-driven decision-making.
-
-Key Features:
-
-*   Departmental Overview  
-    Visualizes data from multiple departments, including:  
-      
-    
-
-*   HRM  
-      
-    
-*   Admissions  
-      
-    
-*   Academics  
-      
-    
-*   Finance  
-      
-    
-*   Inventory  
-      
-    
-
-*   Customizable Charts  
-    Users can select from a variety of chart types (e.g., vertical bar, horizontal bar, line, stacked bars etc.) to visualize the data most effectively.  
-      
-    
-*   Dynamic Parameters  
-    Multiple filters and parameters are available to customize the data view, allowing users to:  
-      
-    
-
-*   Track trends over time  
-      
-    
-*   Compare departmental performance  
-      
-    
-*   Identify operational bottlenecks or areas of improvement  
-      
-    
-
-*   Data Grid View  
-    Alongside visual charts, data is also displayed in a structured grid format for detailed analysis and export purposes.  
-      
-    
-
-This section empowers leadership, department heads, and analysts with real-time insights to support strategic planning and operational efficiency.
-
-## Staff Data
-    
-
-The Staff Data module provides a structured view of all employees in the organization, categorized by employment type for easy reference and management.
-
-Key Features:
-
-*   Two Distinct Sections  
-    The data is divided into two clearly defined categories:  
-      
-    
-
-*   Permanent Employees – Displays details of all full-time staff members who are on the organization’s regular payroll.  
-      
-    
-*   Consultants / Contractual Employees – Shows information for individuals working on a contract or consultancy basis.  
-      
-    
-
-*   Employee Information Displayed  
-    Each section includes key staff details such as:  
-      
-    
-
-*   Employee Code
-    
-*   Name
-    
-*   Onboard type (Full Time, Part time etc.)
-    
-*   School
-    
-*   Department
-    
-*   Designation
-    
-*   Job Type
-    
-*   Date of Joining
-    
-*   Leave Approves etc.  
-      
-    
-
-This module helps HR and administrative teams manage workforce information efficiently by separating long-term and temporary staff records.
-
-##  Increment Initiation
-    
-
-The Increment Initiation module is designed to manage and process employee salary revisions in a streamlined manner. It enables HR and authorized personnel to initiate, review, and finalize increments efficiently.
-
-Key Features:
-
-*   Initiate Increments  
-    Allows users to initiate salary increments for selected employee.  
-      
-    
-*   Employee Salary Details  
-    Displays relevant information for each employee, including:  
-      
-    
-
-*   Name
-    
-*   Department
-    
-*   Current CTC 
-    
-*   Proposed/Updated CTC  
-      
-    
-
-*   Finalize Increments  
-    Once the proposed changes are reviewed, the system provides an option to finalize the increments, officially updating the employee's salary records.  
-      
-    
-
-This module ensures a transparent and well-documented process for handling employee compensation updates, aligning with internal approval workflows and organizational policies.
-
-##  Increment Repo
-    
-
-The Increment Records module provides a detailed overview of all employees for whom increment requests have been raised. It offers a structured and filterable grid view of their updated compensation details.
-
-Key Features:
-
-*   Comprehensive Increment Details  
-    Displays increment-related data for each employee, including:  
-      
-    
-
-*   Updated CTC
-    
-*   CTC Increment Amount
-    
-*   Gross Increment
-    
-*   Employee Details  
-      
-    
-
-*   Filter and Search Options  
-    To streamline data retrieval, users can filter the results based on:  
-      
-    
-
-*   School
-    
-*   Department
-    
-*   Month of Increment  
-      
-    
-
-This module supports HR teams and management in tracking increment activities across the organization, ensuring transparency and consistency in salary updates.
-
-## Staff Attendance - (INST and DEPT)
-    
-
-The Staff Attendance – INST and DEPT modules are two submenus designed to display employee attendance data, segmented by Institute and Department based on the user's access level.
-
-Key Features:
-
-*   Institute-Level Attendance (INST)  
-    Displays attendance records for all employees within the institute the user belongs to. Ideal for institute-level administrators and HR personnel.  
-      
-    
-*   Department-Level Attendance (DEPT)  
-    Shows attendance for employees within the user's own department, allowing department heads or managers to track attendance locally.  
-      
-    
-*   Filterable Grid View  
-    Attendance data is presented in a structured grid format, with filters available for:  
-      
-    
-
-*   Month of Attendance  
-      
-    
-*   School/Institute  
-      
-    
-*   Department  
-      
-    
-*   Employee Type (e.g., Staff, Consultant)  
-      
-    
-
-These submenus provide a quick and accurate way to monitor employee attendance trends, support payroll processing, and ensure departmental accountability.
-
-##  Staff ID Card 
-(print/ history to be discussed)
-    
-
-The Staff ID Card module is used to manage, view, and print official ID cards for employees. It ensures each staff member has a valid, up-to-date identification card aligned with organizational standards.
-
-Key Features:
-
-*   ID Card Preview  
-    Displays the employee's ID card, including:  
-      
-    
-
-*   Employee Name  
-      
-    
-*   Designation  
-      
-    
-*   Photograph  
-      
-    
-*   Card Validity Date  
-      
-    
-
-*   Photo Update  
-    Allows authorized users to upload or update employee photographs to keep ID card visuals current.  
-      
-    
-
-This module helps HR or admin teams issue identification cards efficiently and maintain proper employee identity records.
-
-## Vacation Leave Window
-    
-
-The Vacation Leave Configuration module is used to define and manage the number of vacation leave days allocated to employees at a specific institute for a time frame.
-
-Key Features:
-
-1.  Institute-Specific Leave Settings  
-    Allows users to set vacation leave allowances tailored to individual institutes.  
-      
-    
-2.  Custom Leave Periods  
-    Users can specify the valid time period during which the vacation leaves days can be utilized.  
-      
-    
-3.  Employee Leave Allocation  
-    Enables the allocation of a defined number of vacation leave days per employee, which can vary based on Institute and Academic Year.
-    
 
   
   
