@@ -1,6 +1,3 @@
-## Employee Master
-    
-
 # Employee Master
 
 The **Employee Master** module serves as a comprehensive directory of all employees within the organization. It captures and displays essential information such as:
