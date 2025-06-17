@@ -245,17 +245,17 @@ DB_HOST=localhost
 DB_PORT=3306
 DB_NAME=acharya_erp
 DB_USER=erp_user
-DB_PASS=secure_password
+DB_PASS=test_123
 
 # JWT Configuration
-JWT_SECRET=your_jwt_secret_key
+JWT_SECRET=test_123
 JWT_EXPIRY=24h
 
 # Email Configuration
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=notifications@acharya.edu
-SMTP_PASS=email_password
+SMTP_PASS=test_123
 ```
 
 ## Best Practices
