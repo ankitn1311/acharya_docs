@@ -1,0 +1,26 @@
+# Staff Master
+
+The **Staff Master** module is designed to display employee attendance data based on selected filter criteria. It provides a quick and organized view of attendance records for employees across different departments and locations.
+
+## Key Features
+
+### 1. Filter-Based Search
+
+Users can filter attendance records using the following parameters:
+
+- **Month**
+- **School**
+- **Department**
+- **Employee Type** (e.g., Staff, Consultant)
+
+### 2. Attendance Overview
+
+Once filters are applied, the system displays the attendance data for all employees matching the selected criteria. This allows for efficient tracking and review of employee presence and absence patterns.
+
+---
+
+This module is particularly useful for **HR teams** and **department heads** to:
+
+- Monitor attendance trends  
+- Identify irregularities  
+- Support payroll and compliance processes
