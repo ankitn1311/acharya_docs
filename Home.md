@@ -3,9 +3,9 @@
 Welcome to the comprehensive documentation for Acharya ERP system.
 
 ## Status of the modules
-✅ - Completed
-⛔️ - Not Started
-🚧 - In Progress
+- ✅ - Completed
+- ⛔️ - Not Started
+- 🚧 - In Progress
 
 ## 🚀 Quick Start
 
