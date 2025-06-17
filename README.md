@@ -1,4 +1,4 @@
-Go to Acharya Docs - [Home.md]
+[Go to Acharya Docs](Home.md)
 
 
 ## **Recommended Documentation Tools**
