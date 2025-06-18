@@ -1,0 +1,30 @@
+# Authentication Endpoints
+
+The authentication module provides a suite of RESTful endpoints to facilitate secure user authentication and password management. The following table summarizes each endpoint, its method, and required parameters:
+
+| Endpoint                       | Method | Query Params | Request Body                                 |
+| ------------------------------ | ------ | ------------ | -------------------------------------------- |
+| `/api/authenticate`            | POST   | -            | `{"username":"admin","password":"password"}` |
+| `/api/forgotPasswordWhatsapp`  | POST   | `username=`  | -                                            |
+| `/api/resetPassword`           | PUT    | -            | `{"token":"2323","password":"new password"}` |
+| `/api/UserAuthentication`      | GET    | -            | -                                            |
+| `/api/UserAuthentication/{id}` | GET    | -            | -                                            |
+
+**Endpoint Details:**
+
+- **`/api/authenticate`**  
+  Authenticates user credentials and issues a JWT token upon successful login. The token is required for accessing protected resources.
+
+- **`/api/forgotPasswordWhatsapp`**  
+  Initiates the password reset process by sending a reset code or link to the user's registered WhatsApp number. The `username` query parameter specifies the user.
+
+- **`/api/resetPassword`**  
+  Confirms the password reset using the provided token and sets a new password.
+
+- **`/api/UserAuthentication`**  
+  Retrieves a list of users. Access is restricted to authorized roles.
+
+- **`/api/UserAuthentication/{id}`**  
+  Fetches detailed information for a specific user, identified by their unique ID.
+
+These endpoints are designed to ensure secure and efficient authentication workflows across all supported platforms.

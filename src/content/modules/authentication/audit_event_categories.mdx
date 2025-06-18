@@ -1,0 +1,34 @@
+# Audit Event
+
+Auditing is critical for monitoring user and system activity, supporting compliance, detecting suspicious behavior, and enabling forensic investigations. The following sections describe the types of authentication, password management, and system events that should be logged for robust security and operational transparency.
+
+## Authentication Events
+
+| Event Type         | Description                    | Audit Level | Data Captured                           |
+| ------------------ | ------------------------------ | ----------- | --------------------------------------- |
+| **LOGIN_SUCCESS**  | Successful user login          | INFO        | User ID, IP, timestamp, user agent      |
+| **LOGIN_FAILURE**  | Failed login attempt           | WARN        | Username, IP, failure reason, timestamp |
+| **LOGOUT**         | User logout                    | INFO        | User ID, session duration, IP           |
+| **TOKEN_REFRESH**  | JWT token refresh              | INFO        | User ID, old token ID, new token ID     |
+| **ACCOUNT_LOCKED** | Account locked due to failures | ERROR       | User ID, lock reason, unlock time       |
+
+---
+
+## Password Management Events
+
+| Event Type                 | Description                   | Audit Level | Data Captured                |
+| -------------------------- | ----------------------------- | ----------- | ---------------------------- |
+| **PASSWORD_RESET_REQUEST** | Password reset initiated      | INFO        | User ID, IP, delivery method |
+| **PASSWORD_RESET_SUCCESS** | Password successfully reset   | INFO        | User ID, IP, reset method    |
+| **PASSWORD_RESET_FAILURE** | Failed password reset attempt | WARN        | Token, IP, failure reason    |
+| **PASSWORD_CHANGE**        | Password changed by user      | INFO        | User ID, IP, timestamp       |
+
+---
+
+## System Events
+
+| Event Type               | Description                   | Audit Level | Data Captured                              |
+| ------------------------ | ----------------------------- | ----------- | ------------------------------------------ |
+| **RATE_LIMIT_EXCEEDED**  | Rate limit violation          | WARN        | IP, endpoint, violation count              |
+| **SECURITY_VIOLATION**   | Security policy violation     | ERROR       | User ID, violation type, details           |
+| **CONFIGURATION_CHANGE** | System configuration modified | INFO        | Admin ID, property changed, old/new values |

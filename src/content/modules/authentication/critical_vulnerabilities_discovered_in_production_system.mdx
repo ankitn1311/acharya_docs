@@ -1,0 +1,87 @@
+import { Callout } from 'nextra/components';
+
+# Critical Vulnerabilities in Production Systems
+
+## 1. Exposed User Authentication Endpoint
+
+A critical vulnerability was identified where the `/api/UserAuthentication` endpoint was publicly accessible, exposing sensitive user data including usernames, hashed passwords, emails, and reset tokens.
+
+<Callout type="error">
+  **⚡ CRITICAL ALERT:** This vulnerability poses an immediate and severe threat to system security.
+  Take action immediately to prevent potential data breaches and unauthorized access.
+</Callout>
+
+| Attribute          | Value                              |
+| ------------------ | ---------------------------------- |
+| **Severity Level** | CRITICAL                           |
+| **CVSS Score**     | 9.8 (Critical)                     |
+| **Risk Level**     | HIGH                               |
+| **Status**         | ACTIVE - Immediate Action Required |
+
+---
+
+### Exploit Example
+
+**Request:**
+
+```http
+GET /api/UserAuthentication
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "status": 200,
+  "data": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "$2a$10$...",
+      "usertype": "Staff",
+      "email": "noreply@acharya.ac.in"
+      // ...additional fields...
+    }
+    // ...more user records...
+  ]
+}
+```
+
+---
+
+### Attack Vectors
+
+- **Credential Harvesting:** Download of all usernames, emails, and hashed passwords.
+- **Brute Force Attacks:** Offline password cracking attempts.
+- **Account Takeover:** Unauthorized access via cracked credentials.
+- **Password Reset Exploitation:** Use of exposed reset tokens.
+- **Data Enumeration:** Mapping of user base and roles.
+
+---
+
+### Immediate Mitigation
+
+1. **Restrict Public Access:** Block `/api/UserAuthentication` endpoint.
+2. **Invalidate Reset Tokens:** Expire all password reset tokens.
+3. **Force Password Resets:** Require all users to change passwords.
+
+> **Critical Alert:** Immediate action is required to prevent data breaches and unauthorized access.
+
+### Primary Attack Scenarios
+
+- **🔐 Credential Harvesting**: Attackers can download all usernames, emails, and hashed passwords
+- **⚡ Brute Force Attacks**: Even with bcrypt hashing, attackers can attempt to crack passwords offline
+- **👤 Account Takeover**: Successful password cracking leads to unauthorized access
+- **🔑 Password Reset Exploitation**: Exposed reset tokens can be used to hijack accounts
+- **📊 Data Enumeration**: Attackers can map your entire user base, roles, and organizational structure
+
+### Immediate Mitigation Strategy
+
+### ⚠️ Emergency Actions (Do Now)
+
+1. **Block Public Access**: Immediately restrict the `/api/UserAuthentication` endpoint
+2. **Invalidate Reset Tokens**: Force expire all password reset tokens
+3. **Force Password Resets**: Require all users to change passwords immediately
+
+---

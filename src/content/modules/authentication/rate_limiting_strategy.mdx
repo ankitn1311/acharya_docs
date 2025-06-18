@@ -1,0 +1,49 @@
+import { Callout } from 'nextra/components';
+
+# Rate Limiting Strategy
+
+This document describes the rate limiting policies applied to authentication and API endpoints to protect the system from abuse, brute-force attacks, and denial-of-service (DDoS) scenarios. It outlines endpoint-specific limits, response headers, and the rationale behind each policy to ensure fair and secure access for all users.
+
+<Callout type="error">
+  **Note:** The current system does not inform users of the rate limiting strategy or their
+  remaining quota.
+</Callout>
+
+## Endpoint-Specific Limits
+
+| Endpoint                   | Capacity     | Refill Rate | Refill Period | Rationale           |
+| -------------------------- | ------------ | ----------- | ------------- | ------------------- |
+| POST /auth/authenticate    | 5 requests   | 1 token     | 1 minute      | Prevent brute force |
+| POST /auth/forgot-password | 3 requests   | 1 token     | 1 hour        | Prevent spam        |
+| POST /auth/UserCreation    | 10 requests  | 1 token     | 1 hour        | Prevent abuse       |
+| POST /auth/resetPassword   | 5 requests   | 1 token     | 5 minutes     | Allow retries       |
+| **General API**            | 100 requests | 10 tokens   | 1 minute      | Normal usage        |
+
+---
+
+## Rate Limiting Response Headers
+
+```http
+HTTP/1.1 429 Too Many Requests
+X-RateLimit-Limit: 5
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1640998800
+X-RateLimit-Retry-After: 60
+Content-Type: application/json
+```
+
+```json
+{
+  "timestamp": "2024-12-19T10:30:00Z",
+  "status": 429,
+  "error": "Too Many Requests",
+  "message": "Rate limit exceeded. Try again in 60 seconds.",
+  "path": "/api/auth/login",
+  "rateLimitInfo": {
+    "limit": 5,
+    "remaining": 0,
+    "resetTime": "2024-12-19T10:31:00Z",
+    "retryAfter": 60
+  }
+}
+```
