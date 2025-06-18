@@ -1,0 +1,83 @@
+# Public API Access Flow
+
+## API Request
+
+```http
+GET /api/health
+Content-Type: application/json
+```
+
+## API Response (Success)
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+```json
+{
+  "success": true,
+  "status": 200,
+  "data": "Status is UP"
+}
+```
+
+## Sequence Diagram
+
+```mermaid
+sequenceDiagram
+participant C as Client
+participant CORS as CORS Filter
+participant RL as Rate Limiter
+participant JRF as JWT Request Filter
+participant PC as Public Controller
+participant PS as Public Service
+participant DB as Database
+
+    C->>CORS: GET /api/health
+    CORS->>CORS: Check CORS headers
+    CORS->>RL: Forward request
+    RL->>RL: checkRateLimit(clientIP, endpoint)
+
+    alt Rate limit exceeded
+        RL-->>CORS: 429 TOO_MANY_REQUESTS (Rate limit exceeded)
+        CORS-->>C: 429 TOO_MANY_REQUESTS (Rate limit exceeded)
+    else Rate limit OK
+        RL->>JRF: Forward request
+        JRF->>JRF: Check if endpoint requires authentication
+        Note over JRF: Skip JWT validation for public endpoints
+        JRF->>PC: Forward to Public Controller
+        PC->>PS: Execute business logic
+
+        alt Database operation required
+            PS->>DB: Query data
+            DB-->>PS: Response data
+        end
+
+        PS-->>PC: Response data
+        PC->>JRF: 200 OK {data}
+        JRF->>RL: recordSuccessfulRequest(clientIP, endpoint)
+        JRF->>CORS: 200 OK {data}
+        CORS-->>C: 200 OK {data}
+    end
+
+```
+
+---
+
+## Flow Description
+
+1. **Request Initiation:** Client sends request to public endpoint (no JWT required).
+2. **CORS Validation:** Validates origin and headers.
+3. **Rate Limiting:** Applies to public endpoints to prevent abuse.
+4. **JWT Filter Bypass:** Public endpoints skip JWT validation.
+5. **Controller Access:** Request flows directly to controller.
+6. **Optional Database Operations:** Data retrieval if required.
+
+**Common Public Endpoints:**
+
+- `/api/health` - Health check
+- `/api/state` - Application version
+- `/api/swagger-ui.html` - API documentation
+- `/api/authenticate` - Authentication
+- `/api/resetPassword` - Password reset

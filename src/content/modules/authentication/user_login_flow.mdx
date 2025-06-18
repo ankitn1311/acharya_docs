@@ -1,0 +1,112 @@
+# User Login Flow
+
+### API Request
+
+```http
+POST /api/auth/login
+Content-Type: application/json
+```
+
+```json
+{
+  "username": "admin",
+  "password": "password"
+}
+```
+
+### API Response (Success)
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+```json
+{
+  "success": true,
+  "status": 200,
+  "data": {
+    "userName": "admin",
+    "userType": "staff",
+    "userId": 1,
+    "role": "Super Admin",
+    "adpStatus": null,
+    "book_chapter_approver_designation": null,
+    "token": "eyJhbGciOiJIUzUxMiJ9..."
+  }
+}
+```
+
+## Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant CORS as CORS Filter
+    participant RL as Rate Limiter
+    participant JF as JWT Filter
+    participant AC as Auth Controller
+    participant AM as Authentication Manager
+    participant UDS as User Details Service
+    participant UAR as User Auth Repository
+    participant PE as Password Encoder
+    participant JTU as JWT Token Util
+    participant DB as Database
+
+    C->>CORS: POST /api/authenticate {username, password}
+    CORS->>CORS: Check CORS headers
+    CORS->>RL: Forward request
+    RL->>RL: checkRateLimit(clientIP, username)
+
+    alt Rate limit exceeded
+        RL-->>CORS: 429 TOO_MANY_REQUESTS (Rate limit exceeded)
+        CORS-->>C: 429 TOO_MANY_REQUESTS (Rate limit exceeded)
+    else Rate limit OK
+        RL->>JF: Forward request
+        JF->>JF: Check if authentication endpoint
+        Note over JF: Skip JWT validation for /api/authenticate
+        JF->>AC: Forward to Auth Controller
+        AC->>UAR: findByUsernameCaseSensitive(username)
+        UAR->>DB: SELECT user by username
+        DB-->>UAR: User record
+        UAR-->>AC: UserAuthentication object
+        AC->>UDS: loadUserByUsername(username)
+        UDS-->>AC: UserDetails with authorities
+        AC->>PE: matches(password, hashedPassword)
+        PE-->>AC: Password validation result
+
+        alt Password is default "acharya1234"
+            AC->>RL: recordFailedAttempt(clientIP, username)
+            AC->>JF: Response: 406 NOT_ACCEPTABLE
+            JF->>CORS: Response: 406 NOT_ACCEPTABLE
+            CORS-->>C: 406 NOT_ACCEPTABLE (Force password change)
+        else Password validation successful
+            AC->>AM: authenticate(username, password)
+            AM-->>AC: Authentication successful
+            AC->>JTU: generateToken(userDetails, user)
+            JTU-->>AC: JWT token
+            AC->>RL: recordSuccessfulAttempt(clientIP, username)
+            AC->>JF: Response: 200 OK {token, userInfo, role}
+            JF->>CORS: Response: 200 OK {token, userInfo, role}
+            CORS-->>C: 200 OK {token, userInfo, role}
+        else Authentication failed
+            AC->>RL: recordFailedAttempt(clientIP, username)
+            AC->>JF: Response: 401 UNAUTHORIZED
+            JF->>CORS: Response: 401 UNAUTHORIZED
+            CORS-->>C: 401 UNAUTHORIZED {error message}
+        end
+    end
+```
+
+---
+
+## Flow Description
+
+1. **Request Initiation:** Client sends POST request to `/api/authenticate` with credentials.
+2. **CORS Validation:** Validates request origin and headers.
+3. **Rate Limiting:** Checks request frequency per client/IP.
+4. **Authentication Processing:**
+   - User lookup in database.
+   - Password verification using BCrypt.
+   - JWT token generation.
+5. **Response:** Returns JWT token and user info on success, or error message on failure.

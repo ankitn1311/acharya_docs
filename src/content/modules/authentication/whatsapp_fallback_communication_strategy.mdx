@@ -1,0 +1,55 @@
+import { Callout } from 'nextra/components';
+
+# WhatsApp Fallback Communication Strategy
+
+This document describes a robust multi-channel fallback strategy for delivering password reset codes and critical notifications to users. The approach prioritizes WhatsApp as the primary channel, with automatic fallback to SMS, then email, and finally manual intervention if all automated methods fail. This ensures high reliability and user accessibility even if one or more channels are unavailable.
+
+<Callout type="error">
+  **Note:** The current system only uses WhatsApp for OTP and communication; SMS and email fallback
+  are not implemented properly.
+</Callout>
+
+## Fallback Flow
+
+```mermaid
+flowchart TD
+    A[Password Reset Request] --> B[Primary: WhatsApp]
+    B --> C{WhatsApp Available?}
+
+    C -->|Yes| D[Send via WhatsApp]
+    C -->|No| E[Fallback 1: SMS]
+
+    D --> F{Delivery Successful?}
+    F -->|Yes| G[Success Response]
+    F -->|No| E
+
+    E --> H{SMS Available?}
+    H -->|Yes| I[Send via SMS]
+    H -->|No| J[Fallback 2: Email]
+
+    I --> K{SMS Delivered?}
+    K -->|Yes| G
+    K -->|No| J
+
+    J --> L{Email Available?}
+    L -->|Yes| M[Send via Email]
+    L -->|No| N[Manual Intervention]
+
+    M --> O{Email Sent?}
+    O -->|Yes| G
+    O -->|No| N
+
+    G --> P[Log Success]
+    N --> Q[Log Failure & Alert Admin]
+```
+
+---
+
+## Sequential Fallback Chain
+
+1. **WhatsApp:** Primary communication method for password reset.
+2. **SMS:** Fallback if WhatsApp is unavailable or fails.
+3. **Email:** Final fallback if SMS also fails.
+4. **Admin Alert:** Manual intervention if all automated methods fail.
+
+This multi-channel approach ensures high reliability and user accessibility for critical communications.
