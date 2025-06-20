@@ -14,41 +14,13 @@ Inside the Profile section, an employee can view and add details in the followin
 
 ## 📊 Main Sections
 ```mermaid
-%%{init: {
-    'theme': 'default',
-    'themeVariables': {
-        'fontSize': '32px',
-        'fontFamily': 'arial',
-        'primaryColor': '#4CAF50',
-        'primaryTextColor': '#fff',
-        'primaryBorderColor': '#388E3C',
-        'lineColor': '#388E3C',
-        'secondaryColor': '#2196F3',
-        'tertiaryColor': '#FF9800',
-        'nodeBorderRadius': '16px',
-        'nodePadding': '32px'
-    },
-    'flowchart': {
-        'rankSpacing': 300,
-        'nodeSpacing': 160,
-        'curve': 'basis',
-        'padding': 60
-    }
-}}%%
-graph TB
+flowchart TD
     A[👤 My Profile] --> B[👤 Personal]
     A --> C[💼 Employment]
     A --> D[📚 Academics]
     A --> E[👨‍🏫 Mentor]
     A --> F[📎 Documents]
     A --> G[🎯 Professional]
-    style A fill:#4CAF50,stroke:#388E3C,color:#fff,stroke-width:2px
-    style B fill:#2196F3,stroke:#1976D2,color:#fff
-    style C fill:#2196F3,stroke:#1976D2,color:#fff
-    style D fill:#2196F3,stroke:#1976D2,color:#fff
-    style E fill:#2196F3,stroke:#1976D2,color:#fff
-    style F fill:#2196F3,stroke:#1976D2,color:#fff
-    style G fill:#2196F3,stroke:#1976D2,color:#fff
 ```
 
 ---
@@ -60,8 +32,7 @@ The Personal tab under the My Profile section enables users to view, update, and
 Each sub-section is explained in detail below:
 
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': {'fontSize': '40px', 'nodePadding': '10px', 'nodeBorderRadius': '14px'}, 'flowchart': {'rankSpacing': 200, 'nodeSpacing': 120}}}%%
-graph TB
+flowchart TD
     B[👤 Personal] --> B1[📋 Personal Details]
     B --> B2[📝 Registration Details]
     B --> B3[👨‍👩‍👧‍👦 Family Details]
@@ -167,8 +138,7 @@ This section maintains health-related records. Users can:
 Inside the My profile > Employment tab the user can view, edit, or add information in these areas:
     
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': {'fontSize': '28px', 'nodePadding': '28px', 'nodeBorderRadius': '14px'}, 'flowchart': {'rankSpacing': 200, 'nodeSpacing': 120}}}%%
-graph TB
+flowchart TD
     C[💼 Employment] --> C1[Employment Details]
     C --> C2[Attendance]
     C --> C3[Biometric Details]
@@ -210,8 +180,7 @@ graph TB
 This section is only accessible to teaching staff 
     
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': {'fontSize': '20px', 'nodePadding': '18px', 'nodeBorderRadius': '1px'}, 'flowchart': {'rankSpacing': 100, 'nodeSpacing': 20}}}%%
-graph TB
+flowchart TD
     D[📚 Academics] --> D1[My Courses]
     D --> D2[Feedback]
 ```
@@ -229,8 +198,7 @@ graph TB
 This section is only accessible to teaching staff
 
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': {'fontSize': '18px', 'nodePadding': '20px', 'nodeBorderRadius': '14px'}, 'flowchart': {'rankSpacing': 100, 'nodeSpacing': 20}}}%%
-graph TB
+flowchart TD
     E[👨‍🏫 Mentor] --> E1[Proctee Data]
     E --> E2[Meeting]
 ```
@@ -244,8 +212,7 @@ graph TB
 (under My Profile > Documents)
 
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': {'fontSize': '28px', 'nodePadding': '28px', 'nodeBorderRadius': '14px'}, 'flowchart': {'rankSpacing': 200, 'nodeSpacing': 120}}}%%
-graph TB
+flowchart TD
     F[📎 Documents] --> F1[Personal ID Proofs]
     F --> F2[Educational Certificates]
     F --> F3[Employment Contracts]
@@ -275,8 +242,7 @@ Employees can upload and manage the following types of documents:
 (under My Profile > Documents)
 
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': {'fontSize': '28px', 'nodePadding': '28px', 'nodeBorderRadius': '14px'}, 'flowchart': {'rankSpacing': 200, 'nodeSpacing': 120}}}%%
-graph TB
+flowchart TD
     G[🎯 Professional] --> G1[Publications]
     G --> G2[Conferences]
     G --> G3[Book Chapter]
