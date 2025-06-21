@@ -1,0 +1,20 @@
+export default {
+    'course': 'Course',
+    'tt-creation': 'TT Creation',
+    'tt-masters': 'TT Masters',
+    'course-master': 'Course Master',
+    'student-intake': 'Student Intake',
+    'course-assignment': 'Course Assignment',
+    'lesson-plan': 'Lesson Plan',
+    'academic-calendar': 'Academic Calendar',
+    'add-on-fee': 'AddOn Fee',
+    'emp-calendar': 'Emp Calendar',
+    'lesson-plan-user': 'Lesson Plan - User',
+    'timetable-user': 'Timetable - User',
+    'lms-alive': 'LMS - Alive',
+    'feedback-form': 'Feedback Form',
+    'section-attendance-report': 'Section Attendance Report',
+    'employee-calendar': 'Employee Calendar',
+    'attendance-faculty': 'Attendance - Faculty',
+    'section-attendance-inst-dept': 'Section Attendance Inst and Department'
+}
