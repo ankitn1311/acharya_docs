@@ -1,83 +1,137 @@
-## Job Portal
-    
+# 💼 Job Portal
 
-The Job Portal module acts as a centralized hub for managing all job applications received through the organization’s website. It streamlines the recruitment lifecycle—from application review to final onboarding.
+> **Centralized recruitment management system for streamlined hiring processes**
 
-Key Features and Workflow:
+The Job Portal module acts as a centralized hub for managing all job applications received through the organization's website. It streamlines the complete recruitment lifecycle—from application review to final onboarding.
 
-#### 1.  Applicant Management   
-    All applications submitted for open roles are listed here. Users with appropriate HR support access can:  
-      
-    
+---
 
-*   View applicant profiles  
-      
-    
-*   Update the HR status (e.g., Shortlisted, On Hold, Rejected)  
-      
-    
-*   Provide comments and notes for internal tracking  
-      
-    
+## 🔄 Recruitment Workflow
 
-#### 2.  Interview Scheduling  
-    Once an applicant is Shortlisted, the system enables the option to schedule interviews:  
-      
+```mermaid
+flowchart TD
+    A[📝 Application Received] --> B[👀 Application Review]
+    B --> C{📋 HR Status Update}
+    C -->|✅ Shortlisted| D[👥 Position Selection]
+    C -->|⏸️ On Hold| E[📋 Hold Status]
+    C -->|❌ Rejected| F[📤 Rejection Process]
+    C -->|🚫 No Position| G[📤 No Position Status]
     
+    D --> H[👨‍💼 Select Position]
+    H --> I[📅 Interview Scheduling]
+    I --> J[👥 Interview Conducted]
+    J --> K[📝 Feedback Collection]
+    K --> L{🎯 Interview Decision}
+    L -->|✅ Passed| M[💼 Offer Management]
+    L -->|❌ Failed| N[📤 Rejection Process]
+    
+    M --> O[📄 Offer Letter Generated]
+    O --> P{🤝 Offer Response}
+    P -->|✅ Accepted| Q[👤 Recruitment Process]
+    P -->|❌ Declined| R[📤 Offer Declined Status]
+    P -->|🔄 Withdrawn| S[📤 Offer Withdrawn Status]
+    
+    Q --> T[📋 Employee Details Capture]
+    T --> U[✅ Onboarding Complete]
+    
+    style A fill:#e1f5fe
+    style D fill:#f3e5f5
+    style H fill:#fff3e0
+    style M fill:#e8f5e8
+    style Q fill:#fce4ec
+    style U fill:#c8e6c9
+```
 
-*   One or more interviewers can be selected  
-      
-    
-*   Interview timings and additional details can be configured  
-      
-    
-*   Email notifications can be sent to both the candidate and the interviewers  
-      
-    
+---
 
-#### 3.  Interview Feedback  
-    After the interview is conducted:  
-      
-    
+## 🎯 Key Features & Workflow
 
-*   Each interviewer submits individual feedback and remarks  
-      
-    
-*   HR can add additional comments and manage the interview evaluation process  
-      
-    
-*   Once all interviews are completed, the cumulative feedback is displayed for final decision-making  
-      
-    
+### 📋 1. Applicant Management
+All applications submitted for open roles are listed here. Users with appropriate HR support access can:
 
-#### 4.  Offer Management  
-    Upon successful completion of the interview process:  
-      
-    
+| Action | Description |
+|--------|-------------|
+| **👀 View Profiles** | Access complete applicant information and documents |
+| **📊 Update Status** | Change HR status (Shortlisted, On Hold, Rejected, Offer Declined, Offer withdrawn, No Position) |
+| **💬 Add Comments** | Provide internal notes and tracking information |
 
-*   The system displays the candidate's evaluation summary, role-specific salary breakup, and the offer letter template  
-      
-    
-*   HR can proceed to generate a formal job offer by specifying:  
-      
-    
+### 📅 2. Interview Scheduling
+Once an applicant is Shortlisted, the system enables comprehensive interview management:
 
-*   Reporting manager  
-      
-    
-*   Proposed joining date  
-      
-    
-#### 5.  Recruitment and Onboarding
-  
-    After the job offer is accepted:  
-      
-    
+- **👥 Multiple Interviewers** - Select one or more interviewers
+- **👥 Position** - Select position of applicant like director, principal, HOD, Professor etc.
+- **⏰ Flexible Date** - Configure interview schedules and details
+- **📧 Email Notifications** - Email alerts to candidates and interviewers can be sent
+- **📋 Interview Details** - Add location, format, and special requirements
 
-*   HR can initiate the final recruitment process by clicking the "+" icon under the Recruitment section  
-      
-    
-*   A form appears to capture all necessary employee details (e.g., personal info, department, designation)  
-      
-    
-*   Upon submission, the recruitment is marked complete, and the employee is officially onboarded into the organization
+### 📝 3. Interview Feedback
+After the interview is conducted:
+
+- **👨‍💼 Individual Feedback** - Each interviewer submits detailed remarks
+- **💬 HR Comments** - Additional notes and evaluation management
+- **📊 Cumulative Assessment** - Combined feedback for final decisions
+- **🎯 Evaluation Summary** - Comprehensive candidate assessment
+
+### 💼 4. Offer Management
+Upon successful completion of the interview process and selection:
+
+| Component | Description |
+|-----------|-------------|
+| **📊 Evaluation Summary** | Complete candidate assessment |
+| **💰 Salary Breakdown** | Role-specific compensation details |
+| **📄 Offer Template** | Pre-formatted offer letter |
+| **👨‍💼 Reporting Manager** | Designated supervisor assignment |
+| **📅 Joining Date** | Proposed start date specification |
+
+### 👤 5. Recruitment and Onboarding
+
+After the job offer is accepted:
+
+#### **🔄 Recruitment Process:**
+1. **➕ Initiate Recruitment** - Click the "+" icon in Recruitment section
+2. **📋 Employee Form** - Capture all necessary employee details:
+   - **👤 Personal Information**
+   - **🏢 Department Assignment**
+   - **💼 Designation/Role**
+   - **📅 Employment Details**
+3. **✅ Completion** - Upon submission, recruitment is marked complete
+4. **🎉 Onboarding** - Employee is officially onboarded into the organization
+
+![](https://drive.google.com/file/d/17Aqnv2l9fx_qZ7ChfSkHWr1qvTLAgkJz/view)  
+
+---
+
+## 📢 More Information: Employee Approval & Login Post-Recruitment
+
+Once the recruitment process is complete, the new employee will appear in the **Employee Master** section of HR Support, highlighted in red for easy identification.
+
+**📝 Steps for Employee Approval and Login Enablement:**
+
+1. **👥 User Creation:**
+   - An authorized user with access to Employee Master must initiate user creation for the new employee.
+   - Select the appropriate role for the employee and confirm by clicking **OK**.
+
+2. **🔑 Contract Code Assignment:**
+   - Click on **Add Contract Code** for the employee.
+   - Enter the contract code and submit the form.
+
+3. **🖥️ System Visibility:**
+   - Upon successful user creation, the employee will be listed in the **User Creation** section under the Root Master menu in the Institute module.
+   - The employee can now log in to the system.
+
+4. **✅ Final Approval:**
+   - Once the contract code is assigned, authorized personnel under the **New Staff Approver** submenu (within the Approver menu) can view the employee entry.
+   - Approve the employee contract to finalize the process.
+
+5. **🎉 Completion:**
+   - After approval, the employee's entry in Employee Master will no longer be highlighted in red, indicating successful onboarding and activation.
+
+## 🚀 Benefits
+
+- **⏱️ Streamlined Process** - Reduced time-to-hire
+- **📊 Better Tracking** - Complete application lifecycle visibility
+- **🤝 Improved Communication** - Email notifications and updates
+- **📈 Enhanced Efficiency** - Centralized recruitment management
+- **🎯 Quality Hires** - Structured evaluation and feedback system
+
+---
