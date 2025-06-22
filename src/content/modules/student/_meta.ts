@@ -1,4 +1,15 @@
 export default {
   introduction: 'Introduction',
-  admission: 'Admission'
+  admission: 'Admission',
+  student_details: 'Student Details',
+  frro_data: 'FRRO Data',
+  report_master: 'Report Master',
+  transcript_master: 'Transcript Master',
+  course_assignment: 'Course Assignment',
+  certificate_creation: 'Certificate Creation',
+  student_ledger: 'Student Ledger',
+  student_no_due: 'Student No Due',
+  no_due_report: 'No Due Report',
+  reference_book: 'Reference Book',
+  scholarship: 'Scholarship',
 }
