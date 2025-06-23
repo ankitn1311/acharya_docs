@@ -14,50 +14,6 @@ The **Hostel Due View** module in Acharya ERP provides a consolidated view of ho
 
 ---
 
-## Architecture Diagram
-
-```mermaid
-flowchart TD
-    A[Hostel Due View] --> B[Block-wise Due Summary]
-    B --> C[Block]
-    B --> D[Fixed]
-    B --> E[Paid]
-    B --> F[Waiver]
-    B --> G[Due]
-    B --> H[Student-wise Due Details]
-    H --> I[AUID]
-    H --> J[Student Name]
-    H --> K[USN]
-    H --> L[Academic Year]
-    H --> M[Occupied Date]
-    H --> N[Year/Sem]
-    H --> O[Bed]
-    H --> P[Fixed]
-    H --> Q[Paid]
-    H --> R[Waiver]
-    H --> S[Due]
-    subgraph Features
-        T[Search & Filter]
-        U[Export]
-        V[Customizable Columns]
-        W[Density Control]
-    end
-    B -.-> T
-    B -.-> U
-    H -.-> T
-    H -.-> U
-    B -.-> V
-    H -.-> V
-    B -.-> W
-    H -.-> W
-```
-
-- The main view starts with a **Block-wise Due Summary** showing fixed, paid, waiver, and due amounts for each block.
-- Clicking a block drills down to **Student-wise Due Details** for that block, displaying all relevant student and fee fields.
-- Features such as search, filter, export, customizable columns, and density control are available at both summary and detail levels.
-
----
-
 ## Functional Flow
 
 1. **View Block-wise Dues:**  
@@ -96,3 +52,5 @@ flowchart TD
 | Paid          | Amount paid by the student             |
 | Waiver        | Waiver amount granted to the student   |
 | Due           | Outstanding due amount for the student |
+
+---
