@@ -4,4 +4,5 @@ export default {
   academics: 'Academics',
   institute: 'Institute',
   student: 'Student',
+  hostel: 'Hostel',
 }
