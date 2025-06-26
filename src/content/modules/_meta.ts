@@ -1,5 +1,7 @@
 export default {
   authentication: 'Authentication',
   employee: 'Employee',
-  academics: 'Academics'
+  academics: 'Academics',
+  institute: 'Institute',
+  student: 'Student',
 }
