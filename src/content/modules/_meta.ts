@@ -6,4 +6,5 @@ export default {
   student: 'Student',
   hostel: 'Hostel',
   inventory: 'Inventory',
+  mentorial: 'Mentorial',
 }
