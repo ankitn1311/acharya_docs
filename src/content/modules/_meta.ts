@@ -7,4 +7,5 @@ export default {
   hostel: 'Hostel',
   inventory: 'Inventory',
   mentorial: 'Mentorial',
+  feedback: 'Feedback',
 }
