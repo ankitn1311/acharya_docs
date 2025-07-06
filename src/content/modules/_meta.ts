@@ -3,6 +3,7 @@ export default {
   employee: 'Employee',
   academics: 'Academics',
   institute: 'Institute',
+  finance: 'Finance',
   student: 'Student',
   hostel: 'Hostel',
   inventory: 'Inventory',
