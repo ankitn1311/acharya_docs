@@ -1,0 +1,96 @@
+# Voucher Master
+
+The **Voucher Master** section in Acharya ERP provides a consolidated view of all vouchers across Journal, Payment, and Contra categories. Users can view, filter, print, and cancel vouchers as needed. The voucher list can be filtered by various time periods for efficient tracking and reporting.
+
+---
+
+## Key Features
+
+- **Voucher Listing:** View all vouchers categorized as Journal, Payment, or Contra, with details such as voucher number, date, school, payee/vendor, amount, creator, and status.
+- **Category Tabs:** Switch between Journal, Payment, and Contra voucher lists using tabs.
+- **Filter by Date:** Filter vouchers by Today, 1 Week, 1 Month, 6 Months, Current Year, or Custom Date.
+- **Print Voucher:** Print any voucher directly from the list.
+- **Cancel Voucher:** Cancel a voucher if required, with confirmation.
+- **View Details:** Click to view full voucher details, including attachments and transaction information.
+- **Search, Filter, and Export:** Search and filter vouchers by various criteria and export the list for reporting or analysis.
+- **Audit Trail:** Track who created, cancelled, or updated each voucher.
+
+---
+
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+    A[Voucher Master]
+    A --> B[Journal Tab]
+    A --> C[Payment Tab]
+    A --> D[Contra Tab]
+    B --> E[Voucher List]
+    C --> F[Voucher List]
+    D --> G[Voucher List]
+    E --> H[Print/Cancel/View]
+    F --> I[Print/Cancel/View]
+    G --> J[Print/Cancel/View]
+    A --> K[Date Filter (Today, 1 Week, 1 Month, 6 Months, Current Year, Custom)]
+    A --> L[Search/Export]
+    A --> M[Audit Trail]
+```
+
+---
+
+## Functional Flow
+
+1. **Select Voucher Category:**  
+   Switch between Journal, Payment, and Contra tabs to view vouchers of each type.
+
+2. **Filter by Date:**  
+   Use the date filter to display vouchers for Today, 1 Week, 1 Month, 6 Months, Current Year, or a Custom Date range.
+
+3. **View Voucher List:**  
+   See all vouchers with columns for print, voucher number, date, school, payee/vendor, amount, creator, created date, approved/verified by, type, attachment, and cancel option.
+
+4. **Print Voucher:**  
+   Click the print icon to print the selected voucher.
+
+5. **Cancel Voucher:**  
+   Click the cancel icon to void a voucher, with confirmation.
+
+6. **View Details:**  
+   Click to view full details of any voucher, including attachments.
+
+7. **Search, Filter, and Export:**  
+   Use search and filter tools to locate specific vouchers. Export the list for reporting.
+
+8. **Audit Trail:**  
+   Track all actions (creation, cancellation, updates) for compliance and transparency.
+
+---
+
+## Field Specifications
+
+| Field         | Description                                  |
+|---------------|----------------------------------------------|
+| Print         | Print the voucher                            |
+| Voucher No    | Unique voucher number                        |
+| Date          | Voucher date                                 |
+| School        | School/Institute name                        |
+| Pay To/Vendor | Payee or vendor name                         |
+| Amount        | Voucher amount                               |
+| Created By    | User who created the voucher                 |
+| Created Date  | Date of voucher creation                     |
+| Approved By   | User who approved the voucher (if applicable)|
+| Verified By   | User who verified the voucher (if applicable)|
+| Type          | Voucher type (e.g., DIRECT-PV, FUND-TRANSFER, GRN-PV, etc.) |
+| Attachment    | View attached document                       |
+| Cancel        | Option to cancel the voucher                 |
+
+---
+
+## Usage
+
+- **View:** Review all vouchers by category and time period.
+- **Print:** Print vouchers as needed for records or compliance.
+- **Cancel:** Cancel vouchers if required, with confirmation.
+- **Search/Export:** Use search, filter, and export features for efficient management and reporting.
+
+---

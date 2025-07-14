@@ -1,0 +1,92 @@
+# Journal Voucher Verification
+
+The **Journal Voucher Verification** section in Acharya ERP displays a list of all drafted journal vouchers awaiting verification. Users can review voucher details in a pop-up and choose to accept (verify) or reject each journal voucher.
+
+---
+
+## Key Features
+
+- **Drafted Journal Voucher Listing:** View all drafted journal vouchers with details such as school, department, vendor/payee, amount, type, creator, date, and status.
+- **View Voucher Details:** Click the verify icon to open a pop-up showing full voucher details, including ledger entries, debit/credit amounts, narration, and attachments.
+- **Accept/Reject Voucher:** In the pop-up, choose to accept (verify) or reject the journal voucher.
+- **Status Update:** Verified vouchers are marked as "Verified"; rejected vouchers are marked as "Rejected".
+- **Search, Filter, and Export:** Search, filter, and export the journal voucher list for reporting or analysis.
+- **Audit Trail:** Track who verified, rejected, or updated each voucher.
+
+---
+
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+    A[Journal Voucher Verification]
+    A --> B[Drafted Journal Voucher List]
+    B --> C[Click Verify Icon]
+    C --> D[View Voucher Details]
+    D --> E[Accept (Verify) Voucher]
+    D --> F[Reject Voucher]
+    E --> G[Mark as Verified]
+    F --> H[Mark as Rejected]
+    B --> I[Search/Filter/Export]
+    B --> J[Audit Trail]
+```
+
+---
+
+## Functional Flow
+
+1. **View Drafted Journal Voucher List:**  
+   See all drafted journal vouchers with columns for school, department, vendor/payee, amount, type, creator, date, and status.
+
+2. **Verify Voucher:**  
+   Click the verify icon to open a pop-up with voucher details (particulars, debit/credit, payee, department, narration, amount in words, created by, date, and attachments).
+
+3. **Accept or Reject Voucher:**  
+   In the pop-up, click "Verify" to accept or "Reject" to reject the voucher. The status updates accordingly.
+
+4. **Search, Filter, and Export:**  
+   Use search and filter tools to locate specific vouchers. Export the list for reporting.
+
+5. **Audit Trail:**  
+   Track all actions (verification, rejection, updates) for compliance and transparency.
+
+---
+
+## Field Specifications
+
+| Field         | Description                                  |
+|---------------|----------------------------------------------|
+| Verify        | Verification status (Verified/Rejected/Pending)|
+| Attachment    | View attached document                       |
+| School        | School/Institute name                        |
+| Department    | Department name                              |
+| Vendor/Payee  | Vendor or payee name                         |
+| Amount        | Voucher amount                               |
+| Type          | Voucher type (e.g., DIRECT-JV, GRN-JV)       |
+| Created By    | User who created the voucher                 |
+| Created Date  | Date of voucher creation                     |
+| Remarks       | Remarks or description                       |
+
+**Voucher Details Pop-up:**
+
+| Field         | Description                                  |
+|---------------|----------------------------------------------|
+| Particulars   | Ledger entries (debit/credit)                |
+| Pay To        | Payee/vendor name                            |
+| Department    | Department name                              |
+| Narration     | Voucher narration                            |
+| Amount (Words)| Amount in words                              |
+| Created By    | User and date of creation                    |
+| Attachment    | Supporting document (if any)                 |
+| Reject Button | Button to reject the voucher                 |
+| Verify Button | Button to accept/verify the voucher          |
+
+---
+
+## Usage
+
+- **View:** Review all drafted journal vouchers and their statuses.
+- **Verify/Reject:** Click the verify icon, review details, and choose to accept or reject the voucher. Status updates accordingly.
+- **Search/Export:** Use search, filter, and export features for efficient management and reporting.
+
+---
