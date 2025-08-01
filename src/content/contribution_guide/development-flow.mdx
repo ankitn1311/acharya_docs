@@ -1,0 +1,211 @@
+**Git Workflow Documentation: master / staging / development Branch Strategy**
+
+NOTE:
+
+- Use id with your name to develop feature or merge pull requests, so we have track of who did what things.
+
+---
+
+### Branch Structure
+
+- **master**: Stable, production-ready code. Only tested and verified features reach here.
+  - Can only be merged to `master` branch initally by Ankit. Later the access will be given to other people, so everyone understand the flow.
+- **staging**: Pre-production branch for testing merged features together before releasing to main.
+  - Can only be merge to `staging` branch initally by Ankit.
+  - Later the access will be given to other people, so everyone understand the flow.
+- **development**: Active integration branch for ongoing feature development.
+  - Pull request can be merged by any other developer, not who created the pull request.
+- **feature/**\*: Temporary branches for individual features, fixes, or improvements.
+  - Branch name should start with `featue/` then your specific feature name
+
+---
+
+### Development Flow
+
+1. **Create a feature branch**
+
+   ```bash
+   git checkout development
+   git pull origin development
+   git checkout -b feature/feature-name
+   ```
+
+2. **Work on your feature**
+
+   - Use **meaningful commit messages** (e.g. `feat: add user login`, `fix: resolve token bug`).
+   - Keep commits atomic and scoped.
+
+3. **Create a Pull Request to `development`**
+
+   - **PR title**: Start with `feat:` / `fix:` / `chore:` depending on the change
+
+     - Example: `feat: add login API with JWT support`
+
+   - **PR description**:
+
+     - What the feature does
+     - Relevant issue/ticket link
+     - Any test instructions or special notes
+
+4. **Merge to `development` using Squash and Merge**
+
+   - Squash keeps history clean by combining all commits into one.
+   - Ensure commit message is clear and concise.
+   - Make sure you select `Sqash and merge` and not the other 2 options.
+
+5. **Promote from `development` to `staging`**
+
+   ```bash
+   git checkout staging
+   git pull origin staging
+   git merge development --rebase
+   git push origin staging
+   ```
+
+   - Make sure the merge happens with the `Rebase and merge` option and not `Merge and commit` or `Squash and merge`
+
+6. **Promote from `staging` to `master`**
+
+   ```bash
+   git checkout master
+   git pull origin master
+   git merge staging --rebase
+   git push origin master
+   ```
+
+   - Make sure the merge happens with the `Rebase and merge` option and not `Merge and commit` or `Squash and merge`
+
+---
+
+### Reverting a Feature
+
+If a feature causes issues after merging to either master or staging, we will follow this:
+
+1. **Find the commit hash of the squash merge** from the `staging` history.
+
+2. Revert the specific commit only in development branch:
+
+   ```bash
+   git checkout development
+   git revert <commit-hash>
+   git push origin development
+   ```
+
+   - This creates a new commit that undoes the feature changes.
+   - The revert will flow forward when merged to staging/master using the pull request.
+
+**NOTE**: Assume a scenerio where we want to revert a feature which is already merged to master and staging and after the merging we already have few features that are deployed in the development branch, now if we want to revert the specific feature which is not working then we follow the below steps. So only the feature which is not working we create pull request to staging/master with only the revert.
+
+This allows you to **promote the revert first**, without waiting for the other new changes in `development`.
+
+---
+
+### 🧱 Scenario
+
+- Your branch: `development`
+- Contains:
+
+  - ✅ A **revert commit** (say, commit hash: `abc123`)
+  - ✅ A new feature commit (you don't want to promote to staging yet)
+
+You want to send only the revert to `staging`, not the new feature yet.
+
+---
+
+#### 1. **Create a new branch from staging**
+
+```bash
+git checkout staging
+git pull origin staging
+git checkout -b revert-only
+```
+
+> This ensures the revert will apply cleanly over the current staging branch.
+
+---
+
+#### 2. **Cherry-pick only the revert commit from development which we want to revert**
+
+```bash
+git cherry-pick abc123
+```
+
+- Replace `abc123` with the hash of the revert commit.
+- This applies just the revert onto the `revert-only` branch.
+
+---
+
+#### 3. **Push this branch and create a PR**
+
+```bash
+git push origin revert-only
+```
+
+- Go to GitHub and open a **PR from `revert-only` → `staging`**.
+- Use a clear PR title like:
+
+  ```
+  revert: remove Feature X due to issue #42
+  ```
+
+- This will safely revert the feature without bringing in unrelated new work from `development`.
+
+---
+
+### ✅ After the revert is merged
+
+Later, when you're ready to bring in the new features from `development`, you can do your usual:
+
+```bash
+git checkout staging
+git pull origin staging
+git merge development --rebase
+```
+
+If you already cherry-picked the revert earlier, Git will detect it's already applied and **skip** it — avoiding duplicates.
+
+---
+
+### 🔄 Optional Clean-Up
+
+Once the revert is merged:
+
+```bash
+git branch -d revert-only     # delete local branch
+git push origin --delete revert-only  # delete remote branch (optional)
+```
+
+---
+
+### Naming Guidelines
+
+- **Branch names**:
+
+  - `feature/login-page`, `fix/token-expiry`, `chore/update-deps`
+
+- **Commit messages**:
+
+  - Format: `<type>: <message>`
+
+    - `feat:` for new features
+    - `fix:` for bug fixes
+    - `chore:` for minor tasks
+
+- **Pull Requests**:
+
+  - Clear title and description
+  - Link issues if applicable
+  - Add screenshots/logs if needed
+  - Share the path of the url in the UI where it can be tested
+
+---
+
+### Best Practices
+
+- Always branch from `development`
+- Regularly sync your feature branch with `development`
+- Keep pull requests focused and small
+- Test locally and on staging before going to main
+- Use `revert` to undo features instead of rewriting shared history
+
+---
