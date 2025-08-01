@@ -20,6 +20,39 @@ NOTE:
 
 ---
 
+### Naming Guidelines
+
+- **Branch names**:
+
+  - `feature/login-page`, `fix/token-expiry`, `chore/update-deps`
+
+- **Commit messages**:
+
+  - Format: `<type>: <message>`
+
+    - `feat:` for new features
+    - `fix:` for bug fixes
+    - `chore:` for minor tasks
+
+- **Pull Requests**:
+
+  - Clear title and description
+  - Link issues if applicable
+  - Add screenshots/logs if needed
+  - Share the path of the url in the UI where it can be tested
+
+---
+
+### Best Practices
+
+- Always branch from `development`
+- Regularly sync your feature branch with `development`
+- Keep pull requests focused and small
+- Test locally and on staging before going to main
+- Use `revert` to undo features instead of rewriting shared history
+
+---
+
 ### Development Flow
 
 1. **Create a feature branch**
@@ -94,7 +127,20 @@ If a feature causes issues after merging to either master or staging, we will fo
    - This creates a new commit that undoes the feature changes.
    - The revert will flow forward when merged to staging/master using the pull request.
 
-**NOTE**: Assume a scenerio where we want to revert a feature which is already merged to master and staging and after the merging we already have few features that are deployed in the development branch, now if we want to revert the specific feature which is not working then we follow the below steps. So only the feature which is not working we create pull request to staging/master with only the revert.
+**NOTE: Selective Revert Process**
+
+Consider this scenario:
+
+- A feature is already merged to both `master` and `staging`
+- New features have been added to the `development` branch after the merge
+- You need to revert only the problematic feature without affecting other new work
+
+Follow these steps to create a targeted revert:
+
+- Identify the specific feature causing issues
+- Create a pull request containing only the revert commit
+- Deploy the revert to `staging`/`master` independently
+- Keep other development work separate until ready for deployment
 
 This allows you to **promote the revert first**, without waiting for the other new changes in `development`.
 
@@ -174,38 +220,5 @@ Once the revert is merged:
 git branch -d revert-only     # delete local branch
 git push origin --delete revert-only  # delete remote branch (optional)
 ```
-
----
-
-### Naming Guidelines
-
-- **Branch names**:
-
-  - `feature/login-page`, `fix/token-expiry`, `chore/update-deps`
-
-- **Commit messages**:
-
-  - Format: `<type>: <message>`
-
-    - `feat:` for new features
-    - `fix:` for bug fixes
-    - `chore:` for minor tasks
-
-- **Pull Requests**:
-
-  - Clear title and description
-  - Link issues if applicable
-  - Add screenshots/logs if needed
-  - Share the path of the url in the UI where it can be tested
-
----
-
-### Best Practices
-
-- Always branch from `development`
-- Regularly sync your feature branch with `development`
-- Keep pull requests focused and small
-- Test locally and on staging before going to main
-- Use `revert` to undo features instead of rewriting shared history
 
 ---
